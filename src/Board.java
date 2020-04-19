@@ -6,9 +6,11 @@ public class Board {
     public static Piece[][] board = new Piece[BOARD_SIZE][BOARD_SIZE];
     public static ArrayList<Piece> whitePieces = new ArrayList<Piece>();
     public static ArrayList<Piece> blackPieces = new ArrayList<Piece>();
-    private boolean whiteTurn = true;
+    private static boolean whiteTurn = true;
     public Board(){
     }
+
+    //intialize pieces
     public void initPieces(){
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
@@ -39,6 +41,8 @@ public class Board {
         int cX, cY, toX, toY;
         drawBoard();
         while (!input.equals("stop")){
+            if(kingInCheck(this.whiteTurn)) System.out.println("Your king is in check!");
+
             System.out.println("Select a piece: ");
             input = scanner.nextLine().toLowerCase();
             int[] parsed = parseInput(input);
@@ -67,18 +71,12 @@ public class Board {
                 toY = parsed[1];
             }
 
-
+            //Move Piece
             if(!p.move(toX, toY)) {
                 System.out.println("The move is invalid!");
                 continue;
             }
-
-            if(kingInCheck(this.whiteTurn)){
-                board[toX][toY].move(cX, cY);
-                System.out.println("Your King is in check! Please try again.");
-                continue;
-            }
-
+            //Check if king is in check after moving
             System.out.println("The move is valid!");
             registerBoard();
             drawBoard();
@@ -100,7 +98,7 @@ public class Board {
             }
         }
     }
-    public boolean kingInCheck(boolean isWhite){
+    public static boolean kingInCheck(boolean isWhite){
         ArrayList<Piece> list, kList;
         Piece king = board[0][0];
         if (!isWhite) {
@@ -123,7 +121,7 @@ public class Board {
         return false;
     }
     public void drawBoard(){
-        System.out.print("|   || ");
+        System.out.print("|    || ");
         for (int i = 0; i < BOARD_SIZE; i++) {
             System.out.print(String.format("%2s | ", (char) ('A' + i)));
         }
@@ -139,14 +137,14 @@ public class Board {
     }
     public int[] parseInput(String input){
         char x, y;
-        x = input.charAt(0);
-        y = input.charAt(1);
+        y = input.charAt(0);
+        x = input.charAt(1);
         int[] res = new int[2];
         res[0] = 7 - (x - '1');
         res[1] = y - 'a';
         return res;
     }
-    public boolean getWhiteTurn() {
+    public static boolean getWhiteTurn() {
         return whiteTurn;
     }
 }

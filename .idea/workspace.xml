@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="140f32f8-57dc-46d7-8c64-019a0bb76f6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaChess/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaChess/Piece.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +41,16 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\SWEN20003\JavaChess" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="testGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testGame" />
       <module name="JavaChess" />
+      <option name="INPUT_FILE" value="input.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,7 +119,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587292450452</updated>
       <workItem from="1587292453844" duration="14953000" />
-      <workItem from="1587308033291" duration="2350000" />
+      <workItem from="1587308033291" duration="4803000" />
     </task>
     <servers />
   </component>
@@ -126,6 +131,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="91" key="#Project_Structure/0.0.1536.864@0.0.1536.864" timestamp="1587292458270" />
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587311305733">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1587311305733" />
     <state x="407" y="120" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1587308124524">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -138,38 +147,38 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1587308066612" />
-    <state width="1493" height="282" key="GridCell.Tab.0.bottom" timestamp="1587310614919">
+    <state width="1493" height="282" key="GridCell.Tab.0.bottom" timestamp="1587312735127">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587310614919" />
-    <state width="1493" height="282" key="GridCell.Tab.0.center" timestamp="1587310614919">
+    <state width="1493" height="282" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587312735127" />
+    <state width="1493" height="282" key="GridCell.Tab.0.center" timestamp="1587312735127">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1587310614919" />
-    <state width="1493" height="282" key="GridCell.Tab.0.left" timestamp="1587310614919">
+    <state width="1493" height="282" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1587312735127" />
+    <state width="1493" height="282" key="GridCell.Tab.0.left" timestamp="1587312735127">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1587310614919" />
-    <state width="1493" height="282" key="GridCell.Tab.0.right" timestamp="1587310614919">
+    <state width="1493" height="282" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1587312735127" />
+    <state width="1493" height="282" key="GridCell.Tab.0.right" timestamp="1587312735127">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1587310614919" />
-    <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1587310451065">
+    <state width="1493" height="282" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1587312735127" />
+    <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1587312288809">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587310451065" />
-    <state width="1493" height="277" key="GridCell.Tab.1.center" timestamp="1587310451065">
+    <state width="1493" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587312288809" />
+    <state width="1493" height="277" key="GridCell.Tab.1.center" timestamp="1587312288809">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1587310451065" />
-    <state width="1493" height="277" key="GridCell.Tab.1.left" timestamp="1587310451065">
+    <state width="1493" height="277" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1587312288809" />
+    <state width="1493" height="277" key="GridCell.Tab.1.left" timestamp="1587312288809">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1587310451065" />
-    <state width="1493" height="277" key="GridCell.Tab.1.right" timestamp="1587310451065">
+    <state width="1493" height="277" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1587312288809" />
+    <state width="1493" height="277" key="GridCell.Tab.1.right" timestamp="1587312288809">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1587310451065" />
+    <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1587312288809" />
     <state x="570" y="143" key="RollbackChangesDialog" timestamp="1587310381082">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -194,24 +203,5 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1587299429519" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Rook.java</url>
-          <line>6</line>
-          <properties class="Rook" method="isValidMove">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Board.java</url>
-          <line>94</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

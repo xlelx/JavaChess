@@ -26,10 +26,25 @@ public class Piece {
         if (!valid){
             return false;
         }
+
+        Piece temp = Board.board[toX][toY];
+        int prevX, prevY;
+        prevX = currentX;
+        prevY = currentY;
+
         Board.board[currentX][currentY] = new Piece(currentX, currentY, true);
         this.currentX = toX;
         this.currentY = toY;
         Board.board[currentX][currentY] = this;
+
+        if(Board.kingInCheck(Board.getWhiteTurn())){
+            System.out.println("Your King is in check! Please try again.");
+            this.currentX = prevX;
+            this.currentY = prevY;
+            Board.board[currentX][currentY] = this;
+            Board.board[toX][toY] = temp;
+            return false;
+        }
         return true;
     }
 
