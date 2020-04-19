@@ -41,7 +41,13 @@ public class Board {
         int cX, cY, toX, toY;
         drawBoard();
         while (!input.equals("stop")){
-            if(kingInCheck(this.whiteTurn)) System.out.println("Your king is in check!");
+            if(kingInCheck(this.whiteTurn)){
+                if (isCheckmate(this.whiteTurn)){
+                    System.out.println((this.whiteTurn ? "Black": "White")+" wins!");
+                    break;
+                }
+                System.out.println("Your king is in check!");
+            }
 
             System.out.println("Select a piece: ");
             input = scanner.nextLine().toLowerCase();
@@ -143,6 +149,21 @@ public class Board {
         res[0] = 7 - (x - '1');
         res[1] = y - 'a';
         return res;
+    }
+    public boolean isCheckmate(boolean isWhite){
+        ArrayList<Piece> list = whitePieces;
+        if (!isWhite) list = blackPieces;
+        for (Piece p: blackPieces){
+            for (int i = 0; i < BOARD_SIZE; i++) {
+                for (int j = 0; j < BOARD_SIZE; j++) {
+                    if(p.isValidMove(i, j) && !kingInCheck(isWhite)){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+
     }
     public static boolean getWhiteTurn() {
         return whiteTurn;

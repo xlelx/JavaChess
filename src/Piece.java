@@ -45,6 +45,9 @@ public class Piece {
             Board.board[toX][toY] = temp;
             return false;
         }
+        if(this.getFirstMove()){
+            this.setFirstMove();
+        }
         return true;
     }
 
