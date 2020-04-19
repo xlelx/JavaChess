@@ -1,4 +1,5 @@
 public class Rook extends Piece {
+    private boolean isFirstMove = true;
     public Rook(int currentX, int currentY, boolean isWhite){
         super(currentX, currentY, isWhite);
     }
@@ -28,6 +29,15 @@ public class Rook extends Piece {
         }
         return false;
     }
+    @Override
+    public void setFirstMove() {
+        this.isFirstMove = !this.isFirstMove;
+    }
+    @Override
+    public boolean getFirstMove() {
+        return this.isFirstMove;
+    }
+
     @Override
     public boolean isEmpty() {
         return false;

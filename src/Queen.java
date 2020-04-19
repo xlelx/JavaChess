@@ -9,4 +9,8 @@ public class Queen extends Piece {
         Piece p2 = new Bishop(getCurrentX(), getCurrentY(), isWhite());
         return p1.isValidMove(toX, toY) || p2.isValidMove(toX, toY);
     }
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
 }

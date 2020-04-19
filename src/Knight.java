@@ -14,4 +14,8 @@ public class Knight extends Piece {
         }
         return false;
     }
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
 }

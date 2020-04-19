@@ -40,7 +40,7 @@ public class Board {
         drawBoard();
         while (!input.equals("stop")){
             System.out.println("Select a piece: ");
-            input = scanner.nextLine();
+            input = scanner.nextLine().toLowerCase();
             int[] parsed = parseInput(input);
             cX = parsed[0];
             cY = parsed[1];
@@ -52,19 +52,34 @@ public class Board {
             }
 
             System.out.println("Enter move: ");
-            input = scanner.nextLine();
-            parsed = parseInput(input);
-            toX = parsed[0];
-            toY = parsed[1];
+            input = scanner.nextLine().toLowerCase();
+            if (input.equals("castle kingside")){
+                toX = cX;
+                toY = 6;
+            }
+            else if (input.equals("castle queenside")){
+                toX = cX;
+                toY = 2;
+            }
+            else{
+                parsed = parseInput(input);
+                toX = parsed[0];
+                toY = parsed[1];
+            }
 
 
-            if(!p.move(toX, toY)) continue;
+            if(!p.move(toX, toY)) {
+                System.out.println("The move is invalid!");
+                continue;
+            }
 
             if(kingInCheck(this.whiteTurn)){
                 board[toX][toY].move(cX, cY);
                 System.out.println("Your King is in check! Please try again.");
+                continue;
             }
 
+            System.out.println("The move is valid!");
             registerBoard();
             drawBoard();
 
@@ -79,7 +94,7 @@ public class Board {
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 Piece p = board[i][j];
-                if (!p.getClass().getName().equals("Piece")) continue;
+                if (p.getClass().getName().equals("Piece")) continue;
                 else if (p.isWhite()) whitePieces.add(p);
                 else blackPieces.add(p);
             }
@@ -128,7 +143,7 @@ public class Board {
         y = input.charAt(1);
         int[] res = new int[2];
         res[0] = 7 - (x - '1');
-        res[1] = y - 'A';
+        res[1] = y - 'a';
         return res;
     }
     public boolean getWhiteTurn() {

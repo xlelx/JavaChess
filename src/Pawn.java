@@ -19,7 +19,6 @@ public class Pawn extends Piece {
             if (Math.abs(moveCount) == 2 && this.isFirstMove){
                 int i = isWhite() ? -1 : 1;
                 if (Board.board[cX + i][cY].isEmpty()){
-                    this.isFirstMove = false;
                     return true;
                 }
                 else{
@@ -38,6 +37,14 @@ public class Pawn extends Piece {
             return canCapture(toX, toY);
         }
         else{return false;}
+    }
+    @Override
+    public void setFirstMove() {
+        this.isFirstMove = !this.isFirstMove;
+    }
+    @Override
+    public boolean getFirstMove() {
+        return this.isFirstMove;
     }
 
     @Override

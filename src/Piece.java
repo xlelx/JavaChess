@@ -23,7 +23,6 @@ public class Piece {
     }
     public final boolean move(int toX, int toY){
         boolean valid = this.isValidMove(toX, toY);
-        System.out.println("The move is " + (valid ? "valid" : "not valid") + "!");
         if (!valid){
             return false;
         }
@@ -52,6 +51,12 @@ public class Piece {
 
     public void setCurrentY(int currentY) {
         this.currentY = currentY;
+    }
+    public void setFirstMove(){
+        return;
+    }
+    public boolean getFirstMove(){
+        return false;
     }
     public boolean isEmpty(){
         return true;
