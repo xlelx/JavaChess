@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Board {
     public final static int BOARD_SIZE = 8;
     public static Piece[][] board = new Piece[BOARD_SIZE][BOARD_SIZE];
     public static ArrayList<Piece> whitePieces = new ArrayList<Piece>();
     public static ArrayList<Piece> blackPieces = new ArrayList<Piece>();
+    public static Piece lastCaptured;
+
+    public static int[][] lastMove = new int[2][2];
     private static boolean whiteTurn = true;
     public Board(){
     }
@@ -43,11 +45,11 @@ public class Board {
         drawBoard();
         while (true){
             if(kingInCheck(this.whiteTurn)){
+                System.out.println("Your king is in check!");
                 if (isCheckmate(this.whiteTurn)){
                     System.out.println((this.whiteTurn ? "Black": "White")+" wins!");
                     break;
                 }
-                System.out.println("Your king is in check!");
             }
 
             System.out.println("Select a piece: ");
@@ -106,6 +108,7 @@ public class Board {
             //Check if king is in check after moving
             System.out.println("The move is valid!");
             registerBoard();
+            storeLastMove(cX, cY, toX, toY);
             drawBoard();
 
             this.whiteTurn = !this.whiteTurn;
@@ -157,9 +160,20 @@ public class Board {
             }
         }
         for (Piece p: list) {
-            if (p.isValidMove(king.getCurrentX(), king.getCurrentY())) return true;
+            if (p.isValidMove(king.getCurrentX(), king.getCurrentY())) {
+                return true;
+            }
         }
         return false;
+    }
+    public boolean kingInCheckAfterMove(Piece p,int toX, int toY, boolean isWhite){
+        boolean ans;
+        if (p.move(toX, toY)){
+            ans = kingInCheck(isWhite);
+            p.reverse_move();
+        }
+        else return true;
+        return ans;
     }
     public void drawBoard(){
         System.out.print("|    || ");
@@ -196,17 +210,27 @@ public class Board {
     public boolean isCheckmate(boolean isWhite){
         ArrayList<Piece> list = whitePieces;
         if (!isWhite) list = blackPieces;
-        for (Piece p: blackPieces){
+        for (Piece p: list){
             for (int i = 0; i < BOARD_SIZE; i++) {
                 for (int j = 0; j < BOARD_SIZE; j++) {
-                    if(p.isValidMove(i, j) && !kingInCheck(isWhite)){
+                    if(kingInCheckAfterMove(p, i, j, isWhite)){ //Need to fix code
                         return false;
                     }
                 }
             }
         }
+        System.out.println("Checkmate!");
         return true;
-
+    }
+    public void storeLastMove(int cX, int cY, int toX, int toY){
+        int[] v1 = new int[2];
+        v1[0] = cX;
+        v1[1] = cY;
+        int[] v2 = new int[2];
+        v2[0] = toX;
+        v2[1] = toY;
+        lastMove[0] = v1;
+        lastMove[1] = v2;
     }
     public static boolean getWhiteTurn() {
         return whiteTurn;

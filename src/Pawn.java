@@ -36,6 +36,18 @@ public class Pawn extends Piece {
         else if(Math.abs(toX - cX) == 1 && Math.abs(toY - cY) == 1){
             return canCapture(toX, toY);
         }
+        else if (Math.abs(toX - cX) == 1 && Math.abs(toY - cY) == 1 && Board.lastMove[1][0] == cX){
+            int lNewX, lNewY, lOldX, lOldY;
+            lOldX = Board.lastMove[0][0];
+            lNewX = Board.lastMove[1][0];
+            lNewY = Board.lastMove[1][1];
+            if (Board.board[lNewX][lNewY].getClass().getName().equals("Pawn")){
+                if (Math.abs(lOldX - lNewX) == 2){
+                    return canCapture(toX, toY);
+                }
+            }
+            return false;
+        }
         else{return false;}
     }
     @Override

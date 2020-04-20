@@ -21,12 +21,22 @@ public class Piece {
         }
         return false;
     }
+    public final void reverse_move(){
+        Piece p = Board.lastCaptured;
+        int lNewX, lNewY, lOldX, lOldY;
+        lOldX = Board.lastMove[0][0];
+        lOldY = Board.lastMove[0][1];
+        lNewX = Board.lastMove[1][0];
+        lNewY = Board.lastMove[1][1];
+
+        Board.board[lNewX][lNewY].move(lOldX, lOldY);
+        Board.board[lNewX][lNewY] = p;
+    }
     public final boolean move(int toX, int toY){
         boolean valid = this.isValidMove(toX, toY);
         if (!valid){
             return false;
         }
-
         Piece temp = Board.board[toX][toY];
         int prevX, prevY;
         prevX = currentX;
@@ -45,6 +55,8 @@ public class Piece {
             Board.board[toX][toY] = temp;
             return false;
         }
+
+        Board.lastCaptured = temp;
         if(this.getFirstMove()){
             this.setFirstMove();
         }
